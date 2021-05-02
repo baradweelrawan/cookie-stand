@@ -157,7 +157,7 @@ Seattle.render();
 
    },
  
-    render: function () {
+   render: function () {
     let divEl = document.getElementById('SalmonCookie');
     let h1El =document.createElement('h1');
      divEl.appendChild(h1El);
@@ -211,7 +211,7 @@ let Paris ={
 
    },
  
-    render: function () {
+   render: function () {
     let divEl = document.getElementById('SalmonCookie');
     let h1El =document.createElement('h1');
      divEl.appendChild(h1El);
@@ -225,8 +225,7 @@ let Paris ={
          let liEl = document.createElement('li');
         ulEl.appendChild(liEl);
        
-        liEl.textContent = hours[i] + ':' +  Paris.getcutstmerNum[i] ;
-        
+        liEl.textContent = hours[i] + ':' + Paris.getcutstmerNum[i] ;
         ulEl.appendChild(liEl); 
         return [liEl.textContent];
    }
@@ -262,7 +261,7 @@ let Lima ={
 
    },
  
-    render: function () {
+   render: function () {
     let divEl = document.getElementById('SalmonCookie');
     let h1El =document.createElement('h1');
      divEl.appendChild(h1El);
