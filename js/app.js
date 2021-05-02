@@ -25,8 +25,9 @@ let Seattle ={
         Seattle.getRandom(this.seatMin,this.seatMax);
         let numCookies = Math.floor(Math.random() * Seattle.avgCookie);
         Seattle.customerNum.push(numCookies[j]);
-        return [numCookies[j]];
+        //return [numCookies[j]];
         console.log(Seattle.getRandom(this.seatMin,this.seatMax));
+        return [numCookies[j]];
        }
    Seattle.getcutstmerNum() ;
    //customerNum.push(getRandom)
