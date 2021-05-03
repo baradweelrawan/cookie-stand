@@ -5,6 +5,7 @@ let Seattle ={
     seatMin :23 ,
     seatMax: 65,
     avgCookie: 6.3,
+    totalPerHour: 0,
     //customerPerHour: function (min, max) {
      //   min = Math.ceil(min);
     //    max = Math.floor(max);
@@ -13,26 +14,39 @@ let Seattle ={
    // getRandomInt:function (max) {
     //    return Math.floor(Math.random() * max);
     //  },
-    getRandom:function (min, max) {
-       min = Math.ceil(min);
-         max = Math.floor(max);
-          return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
-        },
-    customerNum :[],
+randomnum :[],
+    getRandom:function (seatMin, seatMax) {
+      for (let hour = 0; hour < hours.length; hour++) 
+      {
+        seatMin = Math.ceil(seatMin);
+        seatMax = Math.floor(seatMax);
+        this.randomnum.push(Math.floor(Math.random() * (seatMax - seatMin) + seatMin));
+      //  return Math.floor(Math.random() * (seatMax - seatMin) + seatMin);
+      }
+      //The maximum is exclusive and the minimum is inclusive
+    },
+   customerNum :[],
    getcutstmerNum :function (){
        for (let j =0 ;j<=  hours.length; j++)
        {
-        Seattle.getRandom(this.seatMin,this.seatMax);
-        let numCookies = Math.floor(Math.random() * Seattle.avgCookie);
-        Seattle.customerNum.push(numCookies[j]);
+        this.customerNum.push(Math.ceil(this. getRandom[j] * this.avgCookie));
+        this.totalPerHour += this.randomnum[j];
+       // Seattle.getRandom(this.seatMin,this.seatMax);
+        //let numCookies = Math.floor(Math.random() * Seattle.avgCookie);
+       // Seattle.customerNum.push(numCookies[j]);
         //return [numCookies[j]];
-        console.log(Seattle.getRandom(this.seatMin,this.seatMax));
-        return [numCookies[j]];
+        //console.log(Seattle.getRandom(this.seatMin,this.seatMax));
+       // return [numCookies[j]];
        }
-   Seattle.getcutstmerNum() ;
+    
+//Seattle.getcutstmerNum() ;
+
+},
+
+
    //customerNum.push(getRandom)
 
-   },
+ 
  //  customerNum.push(getRandom);
 //}
 
@@ -44,8 +58,7 @@ let Seattle ={
 //    return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
 //  },
 
- 
-    render: function () {
+render: function () {
     let divEl = document.getElementById('SalmonCookie');
     // let articleEl = document.createElement('article');
     // divEl.appendChild(articleEl);
@@ -61,9 +74,7 @@ let Seattle ={
     {
          let liEl = document.createElement('li');
         ulEl.appendChild(liEl);
-       // let result = hours[i] + ':' + Seattle.amountsCookies
-        liEl.textContent = hours[i] + ':' + Seattle.amountsCookies ;
-        ulEl.appendChild(liEl); 
+        liEl.textContent = `${hours[i]}:${this.customerNum[i]} cookies`
    }
     
     let imgEl = document.createElement('img');
@@ -82,28 +93,31 @@ Seattle. getRandom();
 Seattle.render();
  
  // let  hours = ['6 am','7 am' , '8am ','9am', '10 am ','11 am','12pm','1pm' ,'2 pm ','3pm' ,'4 pm', '5pm','6pm','7pm','8pm ']
-  let Tokyo ={
+let Tokyo ={
       location : 'Tokyoo', 
       seatMin :3 ,
       seatMax: 24,
       avgCookie:1.2,
-          getRandom:function (min, max) {
-         min = Math.ceil(min);
-           max = Math.floor(max);
-            return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
-          },
-      customerNum :[],
-      getcutstmerNum :function (){
-        for (let j =0 ;j<=  hours.length; j++)
+      randomnum :[],
+      totalPerHour: 0,
+      randomnum :[],
+      getRandom:function (seatMin, seatMax) {
+        for (let hour = 0; hour < hours.length; hour++) 
         {
-         Seattle.getRandom(this.seatMin,this.seatMax);
-         let numCookies = Math.floor(Math.random() * Seattle.avgCookie);
-         Seattle.customerNum.push(numCookies[j]);
-         //return [numCookies[j]];
-         console.log(Seattle.getRandom(this.seatMin,this.seatMax));
-         return [numCookies[j]];
+          seatMin = Math.ceil(seatMin);
+          seatMax = Math.floor(seatMax);
+          this.randomnum.push(Math.floor(Math.random() * (seatMax - seatMin) + seatMin));
         }
-         Tokyo.getcutstmerNum() ;
+          },
+          customerNum :[],
+          getcutstmerNum :function (){
+              for (let j =0 ;j<=  hours.length; j++)
+              {
+               this.customerNum.push(Math.ceil(this. getRandom[j] * this.avgCookie));
+               this.totalPerHour += this.randomnum[j];
+              }
+        // Tokyo.getcutstmerNum() ;
+         
   
      },
    
@@ -118,12 +132,9 @@ Seattle.render();
       let ulEl = document .createElement('ul');
          for (let i =0 ; i <=hours.length ; i++)
       {
-           let liEl = document.createElement('li');
-          ulEl.appendChild(liEl);
-         
-          liEl.textContent = hours[i] + ':' + Tokyo.getcutstmerNum[i] ;
-          ulEl.appendChild(liEl); 
-          return [liEl.textContent];
+        let liEl = document.createElement('li');
+        ulEl.appendChild(liEl);
+        liEl.textContent = `${hours[i]}:${this.customerNum[i]} cookies`
      }
       } 
      
@@ -138,23 +149,26 @@ Seattle.render();
     seatMin :11 ,
     seatMax: 38,
     avgCookie: 3.7,
-        getRandom:function (min, max) {
-       min = Math.ceil(min);
-         max = Math.floor(max);
-          return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
-        },
-    customerNum :[],
-   getcutstmerNum :function (){
-    for (let j =0 ;j<=  hours.length; j++)
-    {
-     Seattle.getRandom(this.seatMin,this.seatMax);
-     let numCookies = Math.floor(Math.random() * Seattle.avgCookie);
-     Seattle.customerNum.push(numCookies[j]);
-    // return [numCookies[j]];
-     console.log(Seattle.getRandom(this.seatMin,this.seatMax));
-    }
-       Dubai.getcutstmerNum() ;
-
+    totalPerHour: 0,
+    randomnum :[],
+    getRandom:function (seatMin, seatMax) {
+      for (let hour = 0; hour < hours.length; hour++) 
+      {
+        seatMin = Math.ceil(seatMin);
+        seatMax = Math.floor(seatMax);
+        this.randomnum.push(Math.floor(Math.random() * (seatMax - seatMin) + seatMin));
+      }
+      },
+        customerNum :[],
+        getcutstmerNum :function (){
+            for (let j =0 ;j<=  hours.length; j++)
+            {
+             this.customerNum.push(Math.ceil(this. getRandom[j] * this.avgCookie));
+             this.totalPerHour += this.randomnum[j];
+            }
+      
+      // Dubai.getcutstmerNum() ;
+          
    },
  
    render: function () {
@@ -168,12 +182,9 @@ Seattle.render();
     let ulEl = document .createElement('ul');
        for (let i =0 ; i <=hours.length ; i++)
     {
-         let liEl = document.createElement('li');
-        ulEl.appendChild(liEl);
-       
-        liEl.textContent = hours[i] + ':' + Dubai.getcutstmerNum[i] ;
-        ulEl.appendChild(liEl); 
-        return [liEl.textContent];
+      let liEl = document.createElement('li');
+      ulEl.appendChild(liEl);
+      liEl.textContent = `${hours[i]}:${this.customerNum[i]} cookies`
    }
     } 
    
@@ -191,23 +202,26 @@ let Paris ={
     seatMin :20 ,
     seatMax: 38,
     avgCookie: 2.3,
-        getRandom:function (min, max) {
-       min = Math.ceil(min);
-         max = Math.floor(max);
-          return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
-        },
-    customerNum :[],
-    getcutstmerNum :function (){
-      for (let j =0 ;j<=  hours.length; j++)
+    totalPerHour: 0,
+    randomnum :[],
+    getRandom:function (seatMin, seatMax) {
+      for (let hour = 0; hour < hours.length; hour++) 
       {
-       Seattle.getRandom(this.seatMin,this.seatMax);
-       let numCookies = Math.floor(Math.random() * Seattle.avgCookie);
-       Seattle.customerNum.push(numCookies[j]);
-       //return [numCookies[j]];
-       console.log(Seattle.getRandom(this.seatMin,this.seatMax));
-
+        seatMin = Math.ceil(seatMin);
+        seatMax = Math.floor(seatMax);
+        this.randomnum.push(Math.floor(Math.random() * (seatMax - seatMin) + seatMin));
       }
-       Paris.getcutstmerNum() ;
+        },
+        customerNum :[],
+        getcutstmerNum :function (){
+            for (let j =0 ;j<=  hours.length; j++)
+            {
+             this.customerNum.push(Math.ceil(this. getRandom[j] * this.avgCookie));
+             this.totalPerHour += this.randomnum[j];
+            }
+      
+      //  Paris.getcutstmerNum() ;
+         
 
    },
  
@@ -222,12 +236,12 @@ let Paris ={
     let ulEl = document .createElement('ul');
        for (let i =0 ; i <=hours.length ; i++)
     {
-         let liEl = document.createElement('li');
-        ulEl.appendChild(liEl);
+      //   let liEl = document.createElement('li');
+     //  ulEl.appendChild(liEl);
        
-        liEl.textContent = hours[i] + ':' + Paris.getcutstmerNum[i] ;
-        ulEl.appendChild(liEl); 
-        return [liEl.textContent];
+        let liEl = document.createElement('li');
+        ulEl.appendChild(liEl);
+        liEl.textContent = `${hours[i]}:${this.customerNum[i]} cookies`
    }
     } 
    
@@ -242,22 +256,22 @@ let Lima ={
     seatMin :2	 ,
     seatMax: 16	,
     avgCookie: 4.6,
+    totalPerHour: 0,
+    randomnum :[],
         getRandom:function (min, max) {
        min = Math.ceil(min);
          max = Math.floor(max);
           return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
         },
     customerNum :[],
-    getcutstmerNum :function (){
-      for (let j =0 ;j<=  hours.length; j++)
-      {
-       Seattle.getRandom(this.seatMin,this.seatMax);
-       let numCookies = Math.floor(Math.random() * Seattle.avgCookie);
-       Seattle.customerNum.push(numCookies[j]);
-      // return [numCookies[j]];
-       console.log(Seattle.getRandom(this.seatMin,this.seatMax));
-      }
-       Lima.getcutstmerNum() ;
+    customerNum :[],
+        getcutstmerNum :function (){
+            for (let j =0 ;j<=  hours.length; j++)
+            {
+             this.customerNum.push(Math.ceil(this. getRandom[j] * this.avgCookie));
+             this.totalPerHour += this.randomnum[j];
+            }
+     //  Lima.getcutstmerNum() ;
 
    },
  
@@ -272,12 +286,12 @@ let Lima ={
     let ulEl = document .createElement('ul');
        for (let i =0 ; i <=hours.length ; i++)
     {
-         let liEl = document.createElement('li');
+        let liEl = document.createElement('li');
         ulEl.appendChild(liEl);
-       
-        liEl.textContent = hours[i] + ':' + Lima.getcutstmerNum[i] ;
-        ulEl.appendChild(liEl); 
-        return [liEl.textContent];
+        liEl.textContent = `${hours[i]}:${this.customerNum[i]} cookies`
+       // liEl.textContent = hours[i] + ':' + Lima.getcutstmerNum[i] ;
+       // ulEl.appendChild(liEl); 
+       // return [liEl.textContent];
    }
     } 
    
