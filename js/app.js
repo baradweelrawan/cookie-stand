@@ -50,7 +50,7 @@ function tableHead (){
   table.appendChild(tr)
   let td =document.createElement('td')
   tr.appendChild(td)
-  td.textContent='location Name'
+  td.textContent='Location Name'
   for (let i=0 ;i<=hours.length;i++ )
   {
     let td=document.createElement('td')
@@ -59,7 +59,7 @@ function tableHead (){
   }
   let td2 =document.createElement('td')
   tr.appendChild(td2)
-  td2.textContent='totalOftoal'
+  td2.textContent='Total Of Total'
 
 }
 tableHead()
@@ -132,8 +132,7 @@ function tablefooter (){
     let td03=document.createElement('td')
     trEl.appendChild(td03)
     td03.textContent= hourlyTotals
-    
-   
+       
   }
   for(let i =0 ;i< salmonCookie.length ; i++)
   {
@@ -145,6 +144,7 @@ function tablefooter (){
   let td04=document.createElement('td')
   trEl.appendChild(td04)
   td04.textContent=sumOfTotal
+
 }
 tablefooter()
 
