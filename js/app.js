@@ -110,6 +110,29 @@ Lima.render();
 console.log(salmonCookie)
 console.log(salmonCookie)
 
+
+ let storeForm = document.getElementById('storeForm')
+storeForm.addEventListener('submit',addNewStore)
+function addNewStore(event){
+  event.preventDefault();
+  table.removeChild(table.lastChild);
+  let location = event.target.location.value;
+  let seatMin = event.target.seatMin.value;
+  let seatMax = event.target.seatMax.value;
+  let avgCookie = event.target.avgCookie.value;
+
+  let newStore =new Cookie (location,seatMin,seatMax,avgCookie )
+  
+ 
+  newStore.getRandom(20 ,5);
+  newStore.customerNum();
+  newStore.render();
+  tablefooter()
+  
+}
+
+
+
 function tablefooter (){
   let trEl =document.createElement('tr');
   table.appendChild(trEl);
@@ -147,5 +170,7 @@ function tablefooter (){
 
 }
 tablefooter()
+
+
 
 
